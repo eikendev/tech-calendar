@@ -5,7 +5,7 @@ from zoneinfo import ZoneInfo
 from ics import Calendar, Event
 from ics.grammar.parse import ContentLine
 
-from .constants import CALENDAR_RELCALID, EXCHANGE_TZ, CALENDAR_DISCLAIMER
+from .constants import CALENDAR_DISCLAIMER, CALENDAR_RELCALID, EXCHANGE_TZ
 from .models import EarningsEvent
 
 
