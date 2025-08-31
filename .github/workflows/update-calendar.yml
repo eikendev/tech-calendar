@@ -41,26 +41,26 @@ jobs:
           FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
         run: uv run tech-calendar
 
-      - name: Publish calendar.ics to public branch (no history)
+      - name: Publish calendar.ics to public branch
         run: |
           set -eu
           FILE="calendar.ics"
           BRANCH="public"
+          WORKDIR="public-branch"
 
           if [ ! -s "$FILE" ]; then
-            echo "$FILE is empty, skipping publish"
+            echo "$FILE is empty or missing, skipping publish"
             exit 0
           fi
 
-          tmp="$(mktemp -d)"
-          cp "$FILE" "$tmp/$FILE"
-
-          git branch -D "$BRANCH" 2>/dev/null || true
-          git checkout --orphan "$BRANCH"
-          cp "$tmp/$FILE" .
-          git add "$FILE"
-
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          rm -rf "$WORKDIR"
+          git worktree add --orphan -B "$BRANCH" "$WORKDIR"
+          cp "$FILE" "$WORKDIR/$FILE"
+
+          cd "$WORKDIR"
+          git add "$FILE"
           git commit -m "publish: calendar $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-          git push --force --set-upstream origin "$BRANCH"
+          git push -f origin HEAD:"$BRANCH"
