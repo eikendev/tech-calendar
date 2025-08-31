@@ -1,0 +1,46 @@
+[project]
+name = "tech-calendar"
+version = "0.1.0"
+description = "iCalendar (.ics) with earnings dates for selected tech tickers"
+readme = "README.md"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+classifiers = [
+    "Environment :: Console",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "finnhub-python>=2.4.24",
+    "ics>=0.7.2",
+    "pydantic>=2.11.7",
+    "structlog>=25.4.0",
+    "tenacity>=9.1.2",
+]
+
+[project.urls]
+Homepage = "https://github.com/eikendev/tech-calendar"
+
+[project.scripts]
+tech-calendar = "tech_calendar.cli:cli"
+
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["tech_calendar"]
+
+[tool.ruff]
+line-length = 120
+lint.select = ["F", "E", "W", "B", "I", "SIM", "UP", "N", "FURB"]
+
+[tool.pyrefly]
+project-includes = ["**/*"]
+project-excludes = ["**/*venv/**/*"]
+
+[dependency-groups]
+dev = [
+    "pyrefly>=0.30.0",
+    "pytest>=8.4.1",
+    "ruff>=0.5.0",
+]
