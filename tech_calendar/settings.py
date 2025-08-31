@@ -14,12 +14,12 @@ class Settings:
     @staticmethod
     def from_env() -> "Settings":
         return Settings(
-            tickers=_csv(os.getenv("TICKERS", None)),
-            ics_path=os.getenv("ICS_PATH", "calendar.ics"),
-            calendar_name=os.getenv("CALENDAR_NAME", "Tech Calendar"),
-            days_ahead=int(os.getenv("DAYS_AHEAD", "20")),
-            days_past=int(os.getenv("DAYS_PAST", "10")),
-            api_key=os.getenv("API_KEY", None),
+            tickers=_csv(os.getenv("TC_TICKERS", None)),
+            ics_path=os.getenv("TC_ICS_PATH", "calendar.ics"),
+            calendar_name=os.getenv("TC_CALENDAR_NAME", "Tech Calendar"),
+            days_ahead=int(os.getenv("TC_DAYS_AHEAD", "20")),
+            days_past=int(os.getenv("TC_DAYS_PAST", "10")),
+            api_key=os.getenv("FINNHUB_API_KEY", None),
         )
 
 
