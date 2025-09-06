@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+X-WR-CALNAME:Tech Calendar
+X-WR-RELCALID:tech.calendar
+X-WR-CALDESC:No representation or warranty, express or implied, is made as to the accuracy, completeness, or timeliness of this information. Do not rely on this calendar or its contents for investment or trading decisions.
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20250827
+DESCRIPTION:Ticker: NVDA\nFiscal Qtr: 2\nEstimate EPS: 1.0281\nEst. Revenue: 46.98 B\nSource: Finnhub
+SUMMARY:NVDA Q2 Earnings
+UID:nvda-q2-earnings@tech.calendar
+END:VEVENT
+END:VCALENDAR
