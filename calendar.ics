@@ -1,0 +1,7 @@
+BEGIN:VCALENDAR
+X-WR-CALNAME:Tech Calendar
+X-WR-RELCALID:tech.calendar
+X-WR-CALDESC:No representation or warranty, express or implied, is made as to the accuracy, completeness, or timeliness of this information. Do not rely on this calendar or its contents for investment or trading decisions.
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+END:VCALENDAR
