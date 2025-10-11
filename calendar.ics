@@ -1,0 +1,37 @@
+BEGIN:VCALENDAR
+X-WR-CALNAME:Tech Calendar
+X-WR-RELCALID:tech.calendar
+X-WR-CALDESC:No representation or warranty, express or implied, is made as to the accuracy, completeness, or timeliness of this information. Do not rely on this calendar or its contents for investment or trading decisions.
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20251023
+DESCRIPTION:Ticker: AMZN\nFiscal Qtr: 3\nEstimate EPS: 1.5919\nEst. Revenue: 181.14 B\nSource: Finnhub
+SUMMARY:AMZN Q3 Earnings
+UID:amzn-q3-earnings@tech.calendar
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20251028
+DESCRIPTION:Ticker: MSFT\nFiscal Qtr: 1\nEstimate EPS: 3.7399\nEst. Revenue: 76.97 B\nSource: Finnhub
+SUMMARY:MSFT Q1 Earnings
+UID:msft-q1-earnings@tech.calendar
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20251028
+DESCRIPTION:Ticker: GOOGL\nFiscal Qtr: 3\nEstimate EPS: 2.389\nEst. Revenue: 102.63 B\nSource: Finnhub
+SUMMARY:GOOGL Q3 Earnings
+UID:googl-q3-earnings@tech.calendar
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20251029
+DESCRIPTION:Ticker: META\nFiscal Qtr: 3\nEstimate EPS: 6.7778\nEst. Revenue: 50.17 B\nSource: Finnhub
+SUMMARY:META Q3 Earnings
+UID:meta-q3-earnings@tech.calendar
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20251030
+DESCRIPTION:Ticker: AAPL\nFiscal Qtr: 4\nEstimate EPS: 1.7966\nEst. Revenue: 103.63 B\nSource: Finnhub
+SUMMARY:AAPL Q4 Earnings
+UID:aapl-q4-earnings@tech.calendar
+END:VEVENT
+END:VCALENDAR
