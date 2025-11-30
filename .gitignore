@@ -1,6 +1,15 @@
 # Output
 calendar.ics
 
+# Configuration files for coding agents
+.claude/
+.clinerules/
+.kilocode/
+.roorules/
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+
 # Python-generated files
 __pycache__/
 *.py[oc]
