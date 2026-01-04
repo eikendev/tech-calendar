@@ -1,11 +1,30 @@
+"""
+Logging configuration for the tech-calendar application.
+"""
+
 import logging
 import sys
 
 import structlog
 
+LOG_LEVELS = {
+    "DEBUG": logging.DEBUG,
+    "INFO": logging.INFO,
+    "WARNING": logging.WARNING,
+    "ERROR": logging.ERROR,
+    "CRITICAL": logging.CRITICAL,
+}
+
 
 def configure_logging(log_level_str: str = "INFO") -> None:
-    log_level = getattr(logging, log_level_str.upper(), logging.INFO)
+    """
+    Configure standard logging and structlog for structured output.
+    """
+    level_key = log_level_str.upper()
+    if level_key not in LOG_LEVELS:
+        raise ValueError(f"Invalid log level: {log_level_str}")
+
+    log_level = LOG_LEVELS[level_key]
 
     logging.basicConfig(
         format="%(message)s",
@@ -14,7 +33,7 @@ def configure_logging(log_level_str: str = "INFO") -> None:
     )
 
     for logger_name in logging.root.manager.loggerDict:
-        if not logger_name.startswith("minigist"):
+        if not logger_name.startswith("tech_calendar"):
             logging.getLogger(logger_name).setLevel(logging.WARNING)
 
     structlog.configure(
@@ -37,4 +56,7 @@ def configure_logging(log_level_str: str = "INFO") -> None:
 
 
 def get_logger(name: str) -> structlog.stdlib.BoundLogger:
+    """
+    Return a structured logger bound to the given name.
+    """
     return structlog.get_logger(name)

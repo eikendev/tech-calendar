@@ -1,6 +1,10 @@
+"""
+Tests for revenue formatting helper.
+"""
+
 import pytest
 
-from tech_calendar.models import _format_revenue
+from tech_calendar.earnings.models import _format_revenue
 
 
 @pytest.mark.parametrize(
@@ -24,4 +28,7 @@ from tech_calendar.models import _format_revenue
     ],
 )
 def test_format_revenue_parametrized(value, expected):
+    """
+    Ensure revenue values are formatted into compact human-readable strings.
+    """
     assert _format_revenue(value) == expected

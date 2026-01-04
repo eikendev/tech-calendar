@@ -1,28 +1,56 @@
+"""
+Domain models for earnings processing.
+"""
+
 from dataclasses import dataclass
 from datetime import date
+from hashlib import sha256
 
-from .constants import CALENDAR_RELCALID
-from .logging import get_logger
+from tech_calendar.constants import DEFAULT_EARNINGS_RELCALID, UID_VERSION
+from tech_calendar.logging import get_logger
 
 logger = get_logger(__name__)
 
 
 @dataclass(frozen=True)
 class EarningsEvent:
+    """
+    Earnings event representation used for persistence and calendar output.
+    """
+
     ticker: str
     date: date
     quarter: int
+    fiscal_year: int | None = None
     eps_estimate: float | None = None
     revenue_estimate: float | None = None
     source: str | None = None
 
-    def uid(self) -> str:
-        return f"{self.ticker.lower()}-q{self.quarter}-earnings@{CALENDAR_RELCALID}"
+    def event_year(self) -> int:
+        """
+        Return the fiscal year if provided, falling back to the calendar year.
+        """
+        return self.fiscal_year if self.fiscal_year is not None else self.date.year
+
+    def uid(self, relcalid: str = DEFAULT_EARNINGS_RELCALID) -> str:
+        """
+        Generate a deterministic UID for the earnings event.
+        """
+        digest = sha256(
+            f"{UID_VERSION}|earnings|{self.ticker.lower()}|{self.event_year()}|{self.quarter}".encode()
+        ).hexdigest()
+        return f"{UID_VERSION}-{digest}@{relcalid}"
 
     def name(self) -> str:
+        """
+        Build the event name.
+        """
         return f"{self.ticker} Q{self.quarter} Earnings"
 
     def description(self) -> str:
+        """
+        Build the multi-line description for the ICS entry.
+        """
         details = [
             f"Ticker: {self.ticker}",
             f"Fiscal Qtr: {self.quarter or '-'}",
@@ -33,9 +61,7 @@ class EarningsEvent:
         return "\n".join(details)
 
 
-def _format_revenue(
-    value: float | int | str | None,
-) -> str:
+def _format_revenue(value: float | int | str | None) -> str:
     """
     Format a revenue figure into a compact human-readable string.
     """
@@ -58,11 +84,10 @@ def _format_revenue(
 
     if n < 1_000:
         return f"{n:.0f}"
-    elif n < 1_000_000:
+    if n < 1_000_000:
         return f"{(n / 1_000):.0f} K"
-    elif n < 1_000_000_000:
+    if n < 1_000_000_000:
         return f"{(n / 1_000_000):.1f} M"
-    elif n < 1_000_000_000_000:
+    if n < 1_000_000_000_000:
         return f"{(n / 1_000_000_000):.2f} B"
-    else:
-        return f"{(n / 1_000_000_000_000):.2f} T"
+    return f"{(n / 1_000_000_000_000):.2f} T"
