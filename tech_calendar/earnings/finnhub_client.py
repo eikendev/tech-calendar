@@ -1,3 +1,7 @@
+"""
+Finnhub client integration for earnings retrieval.
+"""
+
 import contextlib
 from datetime import date
 
@@ -12,8 +16,8 @@ from tenacity import (
     wait_exponential,
 )
 
-from .logging import get_logger
-from .models import EarningsEvent
+from tech_calendar.earnings.models import EarningsEvent
+from tech_calendar.logging import get_logger
 
 logger = get_logger(__name__)
 
@@ -55,6 +59,7 @@ class FinnhubEarningsItem(BaseModel):
             ticker=self.symbol.strip().upper(),
             date=self.date,
             quarter=self.quarter,
+            fiscal_year=self.year,
             eps_estimate=self.eps_estimate,
             revenue_estimate=self.revenue_estimate,
             source="Finnhub",

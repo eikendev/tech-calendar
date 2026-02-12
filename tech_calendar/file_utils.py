@@ -1,11 +1,18 @@
+"""
+File utilities for writing output artifacts.
+"""
+
 from pathlib import Path
 
-from .logging import get_logger
+from tech_calendar.logging import get_logger
 
 logger = get_logger(__name__)
 
 
-def write_text_file(path: str | Path, content: str, *, encoding: str = "utf-8") -> Path:
+def write_text_file(path: Path, content: str, *, encoding: str = "utf-8") -> Path:
+    """
+    Write text content to the target path, creating parent directories if needed.
+    """
     p = Path(path)
 
     logger.debug(

@@ -1,12 +1,19 @@
-# 📅 Tech Calendar
-
-See when the biggest tech companies announce earnings, right in your calendar. Always up to date, no manual updates needed.
+<div align="center">
+  <h1>tech-calendar</h1>
+  <h4 align="center">
+    Subscribe-ready ICS feeds for earnings.
+  </h4>
+  <p>Earnings dates published as ICS feeds you can subscribe to.</p>
+</div>
 
 > [!WARNING]
-> This calendar is for **planning purposes only**!
-> Do not use it as the basis for trading or investment decisions.
+> This calendar is for planning purposes only. Do not use it for trading or investment decisions.
 
-## 📊 Companies included
+## ✨ What this is
+
+A calendar with **quarterly earnings dates of popular tech companies** with a horizon of the next 20 days
+
+### 📊 Companies included
 
 | Company            | Symbol |
 |--------------------|--------|
@@ -18,13 +25,7 @@ See when the biggest tech companies announce earnings, right in your calendar. A
 | Netflix            | NFLX   |
 | NVIDIA             | NVDA   |
 
-## ⏳ What’s shown
-
-- Earnings dates for the **next 20 days**
-- Results from the **last 10 days**
-- Events are added as **all-day entries**
-
-## 📝 Example event
+### 📝 Example event
 
 **Event name**
 ```
@@ -40,6 +41,8 @@ Est. Revenue: 46.98 B
 Source: Finnhub
 ```
 
+## 📥 Subscribe
+
 ## 📥 Add this calendar
 
 > [!TIP]
@@ -50,18 +53,57 @@ Source: Finnhub
 https://raw.githubusercontent.com/eikendev/tech-calendar/refs/heads/public/calendar.ics
 ```
 
-Then follow the steps for your calendar app:
+### Apple Calendar (Mac / iPhone / iPad)
+- Mac: Calendar → File → New Calendar Subscription… → paste the ICS URL.
+- iPhone/iPad: Settings → Calendar → Accounts → Add Account → Other → Add Subscribed Calendar → paste the ICS URL.
 
-### 🍎 Apple Calendar (Mac / iPhone / iPad)
-- **Mac:** Calendar → File → New Calendar Subscription… → Paste link
-- **iPhone/iPad:** Settings → Calendar → Accounts → Add Account → Other → Add Subscribed Calendar → Paste link
+### Google Calendar
+- Open Google Calendar.
+- Left sidebar → Other calendars → From URL → paste the ICS URL → Add calendar.
 
-### 📊 Google Calendar
-- Open Google Calendar
-- Left sidebar → **Other calendars → From URL**
-- Paste link → **Add calendar**
+### Outlook
+- Open Outlook.
+- File → Account Settings → Internet Calendars → New… → paste the ICS URL → confirm.
 
-### 💼 Outlook
-- Open Outlook
-- File → Account Settings → Internet Calendars → New…
-- Paste link → Confirm
+## 🚀 Install this tool
+
+Install tech-calendar using `uv`:
+
+```bash
+uv tool install tech-calendar
+```
+
+Install tech-calendar using `pip`:
+
+```bash
+pip install tech-calendar
+```
+
+## ⚙️ Configure this tool
+
+Create a configuration file at `~/.config/tech-calendar/config.yaml`:
+
+```yaml
+storage:
+  db_path: "tech_calendar.db"
+
+earnings:
+  calendar:
+    ics_path: "earnings.ics"
+    relcalid: "tech.calendar.earnings"
+    name: "Tech Earnings Calendar"
+    description: "Earnings dates for selected tickers."
+    retention_years: 5
+  tickers: ["AAPL", "MSFT", "GOOG"]
+  api_key: <your API key>  # or set TC_FINNHUB_API_KEY environment
+  days_ahead: 20
+  days_past: 10
+```
+
+## 🏃 Run this tool
+
+Run the earnings workflow:
+
+```bash
+tech-calendar earnings
+```
