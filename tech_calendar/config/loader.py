@@ -10,8 +10,8 @@ from typing import Any
 import yaml
 from pydantic import ValidationError
 
-from tech_calendar.config.models import AppConfig
-from tech_calendar.constants import CONFIG_DIR_NAME, DEFAULT_CONFIG_CANDIDATES
+from tech_calendar.config.models import AppConfig, StorageConfig
+from tech_calendar.constants import CONFIG_DIR_NAME, DEFAULT_CONFIG_CANDIDATES, ENV_DB_PATH
 from tech_calendar.exceptions import ConfigError
 from tech_calendar.logging import get_logger
 
@@ -85,6 +85,21 @@ def _load_config_from_file(path: Path) -> AppConfig:
     return config
 
 
+def _apply_env_overrides(config: AppConfig) -> AppConfig:
+    """Apply environment variable overrides to configuration."""
+    env_db_path = os.environ.get(ENV_DB_PATH)
+    if not env_db_path:
+        return config
+
+    try:
+        storage = StorageConfig.model_validate({"db_path": env_db_path})
+    except ValidationError as exc:
+        raise ConfigError(f"Invalid {ENV_DB_PATH} value: {exc}") from exc
+
+    logger.info("config_env_override", key=ENV_DB_PATH)
+    return config.model_copy(update={"storage": storage})
+
+
 def find_config_file(config_path: Path | None = None) -> Path:
     """Return the first available configuration file path."""
     if config_path is not None:
@@ -118,4 +133,5 @@ def find_config_file(config_path: Path | None = None) -> Path:
 def load_config(config_path: Path | None = None) -> AppConfig:
     """Load the tech-calendar YAML configuration."""
     resolved_path = find_config_file(config_path)
-    return _load_config_from_file(resolved_path)
+    config = _load_config_from_file(resolved_path)
+    return _apply_env_overrides(config)

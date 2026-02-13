@@ -10,6 +10,7 @@ DEFAULT_DB_PATH: str = "file://tech_calendar.db"
 
 CLI_ENV_PREFIX: str = "TC"
 ENV_FINNHUB_API_KEY: str = "TC_FINNHUB_API_KEY"
+ENV_DB_PATH: str = "TC_STORAGE_DB_PATH"
 
 DEFAULT_EARNINGS_RELCALID: str = "tech.calendar.earnings"
 DEFAULT_EARNINGS_CALENDAR_NAME: str = "Tech Earnings Calendar"
