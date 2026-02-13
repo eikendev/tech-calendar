@@ -27,7 +27,7 @@ class StorageConfig(BaseModel):
 
     db_path: Annotated[
         AnyUrl,
-        UrlConstraints(allowed_schemes={"file", "webdav"}),
+        UrlConstraints(allowed_schemes=["file", "webdav"]),
         Field(default=DEFAULT_DB_PATH),
     ]
 
