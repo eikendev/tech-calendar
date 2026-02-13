@@ -1,5 +1,7 @@
 .env
 config.yaml
+earnings.ics
+tech_calendar.db
 
 # Output
 calendar.ics
