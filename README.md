@@ -85,7 +85,7 @@ Create a configuration file at `~/.config/tech-calendar/config.yaml`:
 
 ```yaml
 storage:
-  db_path: "tech_calendar.db"
+  db_path: "file://tech_calendar.db"
 
 earnings:
   calendar:
@@ -99,6 +99,9 @@ earnings:
   days_ahead: 20
   days_past: 10
 ```
+
+`db_path` supports `file://` and `webdav://` URLs. Example WebDAV value:
+`webdav://https://user:pass@webdav.example.com/calendars/tech_calendar.db`
 
 ## 🏃 Run this tool
 

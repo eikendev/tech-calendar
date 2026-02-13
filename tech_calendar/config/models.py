@@ -6,7 +6,7 @@ from collections.abc import Iterable
 from pathlib import Path
 from typing import Annotated
 
-from pydantic import BaseModel, Field, field_validator
+from pydantic import AnyUrl, BaseModel, Field, UrlConstraints, field_validator
 
 from tech_calendar.constants import (
     DEFAULT_DB_PATH,
@@ -25,7 +25,11 @@ class StorageConfig(BaseModel):
     Settings for persistent SQLite storage.
     """
 
-    db_path: Path = Field(default=DEFAULT_DB_PATH)
+    db_path: Annotated[
+        AnyUrl,
+        UrlConstraints(allowed_schemes={"file", "webdav"}),
+        Field(default=DEFAULT_DB_PATH),
+    ]
 
 
 class CalendarBase(BaseModel):

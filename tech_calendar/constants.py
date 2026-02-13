@@ -6,7 +6,7 @@ from pathlib import Path
 
 EXCHANGE_TZ: str = "America/New_York"
 
-DEFAULT_DB_PATH: Path = Path("tech_calendar.db")
+DEFAULT_DB_PATH: str = "file://tech_calendar.db"
 
 CLI_ENV_PREFIX: str = "TC"
 ENV_FINNHUB_API_KEY: str = "TC_FINNHUB_API_KEY"
