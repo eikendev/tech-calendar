@@ -23,4 +23,7 @@ DEFAULT_EARNINGS_RETENTION_YEARS: int = 5
 DEFAULT_EARNINGS_DAYS_AHEAD: int = 20
 DEFAULT_EARNINGS_DAYS_PAST: int = 10
 
+DEFAULT_CONFIG_CANDIDATES: tuple[str, ...] = ("config.yaml", "config.yml")
+CONFIG_DIR_NAME: str = "tech-calendar"
+
 UID_VERSION: str = "v1"

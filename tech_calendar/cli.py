@@ -43,6 +43,15 @@ def _execute_command(action: CommandAction, config: AppConfig) -> None:
         raise SystemExit(1) from exc
 
 
+def _load_config(ctx: click.Context, config_file: Path | None) -> None:
+    """
+    Resolve, load, and store configuration on a CLI context.
+    """
+    resolved_config = find_config_file(config_file)
+    ctx.ensure_object(dict)
+    ctx.obj["config"] = load_config(resolved_config)
+
+
 @click.group(context_settings={"auto_envvar_prefix": CLI_ENV_PREFIX})
 @click.option(
     "--config-file",
@@ -61,9 +70,7 @@ def _execute_command(action: CommandAction, config: AppConfig) -> None:
 def cli(ctx: click.Context, log_level: str, config_file: Path | None) -> None:
     try:
         configure_logging(log_level)
-        resolved_config = find_config_file(config_file)
-        ctx.ensure_object(dict)
-        ctx.obj["config"] = load_config(resolved_config)
+        _load_config(ctx, config_file)
     except (ConfigError, StorageError, OrchestrationError, ValueError) as exc:
         logger.error("cli_validation_error", error=str(exc))
         raise SystemExit(2) from exc
