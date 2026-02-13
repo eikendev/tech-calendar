@@ -1,0 +1,10 @@
+earnings:
+  calendar:
+    ics_path: "earnings.ics"
+    relcalid: "tech.calendar.earnings"
+    name: "Tech Earnings Calendar"
+    description: "Earnings dates for selected tickers."
+    retention_years: 2
+  tickers: ["META", "NVDA", "MSFT", "AAPL", "AMZN", "GOOGL", "NFLX"]
+  days_ahead: 20
+  days_past: 10

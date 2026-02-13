@@ -33,13 +33,9 @@ jobs:
 
       - name: Generate ICS
         env:
-          TC_TICKERS: ${{ vars.TC_TICKERS }}
-          TC_ICS_PATH: ${{ vars.TC_ICS_PATH }}
-          TC_CALENDAR_NAME: ${{ vars.TC_CALENDAR_NAME }}
-          TC_DAYS_AHEAD: ${{ vars.TC_DAYS_AHEAD }}
-          TC_DAYS_PAST: ${{ vars.TC_DAYS_PAST }}
-          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
-        run: uv run tech-calendar
+          TC_FINNHUB_API_KEY: ${{ secrets.TC_FINNHUB_API_KEY }}
+          TC_STORAGE_DB_PATH: ${{ secrets.TC_STORAGE_DB_PATH }}
+        run: uv run tech-calendar --config ${{ github.ref }}/.github/tech-calendar.yaml
 
       - name: Publish calendar.ics to public branch
         run: |
