@@ -103,6 +103,7 @@ earnings:
 `db_path` supports `file://` and `webdav://` URLs. You can also set `TC_STORAGE_DB_PATH` to override the configuration file.
 Example WebDAV value:
 `webdav://https://user:pass@webdav.example.com/calendars/tech_calendar.db`
+Note: the WebDAV backend does not create directories, so the parent folder must already exist.
 
 ## 🏃 Run this tool
 

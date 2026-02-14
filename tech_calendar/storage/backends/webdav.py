@@ -77,7 +77,8 @@ class WebDAVBackend(StorageBackend):
         if self._local_path is None:
             return None
         try:
-            self._ensure_remote_dir()
+            if self._target.remote_dir and not self._remote_exists(self._target.remote_dir):
+                raise StorageError(f"webdav directory does not exist: {self._target.remote_dir}")
             self._upload(self._target.remote_path, self._local_path)
         finally:
             if self._temp_dir is not None:
@@ -159,22 +160,6 @@ class WebDAVBackend(StorageBackend):
 
         return Client(options)
 
-    def _ensure_remote_dir(self) -> None:
-        """
-        Ensure the remote directory tree exists for the database file.
-        """
-        if not self._target.remote_dir:
-            return None
-
-        current = ""
-
-        for part in self._target.remote_dir.split("/"):
-            current = f"{current}/{part}" if current else part
-            if not self._remote_exists(current):
-                self._mkdir(current)
-
-        return None
-
     def _remote_exists(self, remote_path: str) -> bool:
         """
         Check whether a WebDAV resource exists, treating 404 as missing.
@@ -217,22 +202,6 @@ class WebDAVBackend(StorageBackend):
         except WebDavException as exc:
             logger.error("webdav_download_failed", extra={"path": remote_path, "error": str(exc)})
             raise StorageError("failed to download webdav database") from exc
-
-    @retry(
-        reraise=True,
-        stop=stop_after_attempt(3),
-        wait=wait_exponential(multiplier=1.5, min=1, max=10),
-        retry=retry_if_exception_type(WebDavException),
-    )
-    def _mkdir(self, remote_path: str) -> None:
-        """
-        Create a WebDAV directory with retries.
-        """
-        try:
-            self._client.mkdir(remote_path)
-        except WebDavException as exc:
-            logger.error("webdav_mkdir_failed", extra={"path": remote_path, "error": str(exc)})
-            raise StorageError("failed to create webdav directory") from exc
 
     @retry(
         reraise=True,
