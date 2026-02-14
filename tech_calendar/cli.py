@@ -55,6 +55,7 @@ def _load_config(ctx: click.Context, config_file: Path | None) -> None:
 @click.group(context_settings={"auto_envvar_prefix": CLI_ENV_PREFIX})
 @click.option(
     "--config",
+    "config_file",
     type=click.Path(exists=True, dir_okay=False, path_type=Path),
     default=None,
     help="Path to the YAML configuration file.",
