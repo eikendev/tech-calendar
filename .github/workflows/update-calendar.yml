@@ -35,7 +35,7 @@ jobs:
         env:
           TC_FINNHUB_API_KEY: ${{ secrets.TC_FINNHUB_API_KEY }}
           TC_STORAGE_DB_PATH: ${{ secrets.TC_STORAGE_DB_PATH }}
-        run: uv run tech-calendar earnings --config ${{ github.workspace }}/.github/tech-calendar.yaml
+        run: uv run tech-calendar --config ${{ github.workspace }}/.github/tech-calendar.yaml earnings
 
       - name: Publish calendar.ics to public branch
         run: |
