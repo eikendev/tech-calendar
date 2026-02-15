@@ -4,6 +4,8 @@ run-name: CI • ${{ github.event_name }} • ${{ github.ref_name }}
 on:
   pull_request:
     branches: [ main ]
+  push:
+    branches: [ main ]
   workflow_call:
 
 permissions:
