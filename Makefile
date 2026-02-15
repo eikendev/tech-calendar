@@ -6,8 +6,8 @@ TESTS := ./tests
 .PHONY: default
 default: check
 
-.PHONY: install
-install:
+.PHONY: setup
+setup:
 	$(UV) sync --all-extras --dev
 
 .PHONY: format
