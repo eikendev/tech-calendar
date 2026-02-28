@@ -43,6 +43,7 @@ project-excludes = ["**/*venv/**/*"]
 
 [dependency-groups]
 dev = [
+    "bandit>=1.9.4",
     "pyrefly>=0.30.0",
     "pytest>=8.4.1",
     "ruff>=0.5.0",
