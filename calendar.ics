@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+X-WR-CALNAME:Tech Earnings Calendar
+X-WR-RELCALID:tech.calendar.earnings
+X-WR-CALDESC:Earnings dates for selected tickers.
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260225
+DESCRIPTION:Ticker: NVDA\nFiscal Qtr: 4\nEstimate EPS: 1.5616\nEst. Revenue: 67.32 B\nSource: Finnhub
+SUMMARY:NVDA Q4 Earnings
+UID:v1-7d4514deaf55dcbbfb8f8d48639b912726d6346594d9777b2439b22e52804cb1@tech.calendar.earnings
+END:VEVENT
+END:VCALENDAR
