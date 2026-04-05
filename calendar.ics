@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+X-WR-CALNAME:Tech Earnings Calendar
+X-WR-RELCALID:tech.calendar.earnings
+X-WR-CALDESC:Earnings dates for selected tickers.
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260423
+DESCRIPTION:Ticker: AMZN\nFiscal Qtr: 1\nEstimate EPS: 1.6603\nEst. Revenue: 180.71 B\nSource: Finnhub
+SUMMARY:AMZN Q1 Earnings
+UID:v1-0add6df21f01d8097924e39f88ee61dbe2a06884a4856c4e25d315eb08a1e334@tech.calendar.earnings
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260225
+DESCRIPTION:Ticker: NVDA\nFiscal Qtr: 4\nEstimate EPS: 1.5616\nEst. Revenue: 67.32 B\nSource: Finnhub
+SUMMARY:NVDA Q4 Earnings
+UID:v1-7d4514deaf55dcbbfb8f8d48639b912726d6346594d9777b2439b22e52804cb1@tech.calendar.earnings
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260416
+DESCRIPTION:Ticker: NFLX\nFiscal Qtr: 1\nEstimate EPS: 0.7761\nEst. Revenue: 12.42 B\nSource: Finnhub
+SUMMARY:NFLX Q1 Earnings
+UID:v1-3ee448aa3b23b6b21a2b8b50fc9aec81a5ab63b3d24a7291412dee366aca46d4@tech.calendar.earnings
+END:VEVENT
+END:VCALENDAR
