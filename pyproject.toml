@@ -10,7 +10,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
 ]
 dependencies = [
-    "click>=8.3.1",
+    "click>=8.3.2",
     "finnhub-python>=2.4.24",
     "ics>=0.7.2",
     "pydantic>=2.11.7",
@@ -27,7 +27,7 @@ Homepage = "https://github.com/eikendev/tech-calendar"
 tech-calendar = "tech_calendar.cli:cli"
 
 [build-system]
-requires = ["setuptools>=64"]
+requires = ["setuptools>=82.0.1"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
@@ -44,7 +44,7 @@ project-excludes = ["**/*venv/**/*"]
 [dependency-groups]
 dev = [
     "bandit>=1.9.4",
-    "pyrefly>=0.30.0",
-    "pytest>=8.4.1",
-    "ruff>=0.5.0",
+    "pyrefly>=0.59.1",
+    "pytest>=9.0.3",
+    "ruff>=0.15.9",
 ]
