@@ -10,10 +10,10 @@ classifiers = [
     "Programming Language :: Python :: 3",
 ]
 dependencies = [
-    "click>=8.3.2",
-    "finnhub-python>=2.4.24",
+    "click>=8.3.3",
+    "finnhub-python>=2.4.28",
     "ics>=0.7.3",
-    "pydantic>=2.11.7",
+    "pydantic>=2.13.2",
     "PyYAML>=6.0.2",
     "structlog>=25.4.0",
     "tenacity>=9.1.2",
@@ -44,7 +44,7 @@ project-excludes = ["**/*venv/**/*"]
 [dependency-groups]
 dev = [
     "bandit>=1.9.4",
-    "pyrefly>=0.60.2",
+    "pyrefly>=0.61.1",
     "pytest>=9.0.3",
-    "ruff>=0.15.10",
+    "ruff>=0.15.11",
 ]
