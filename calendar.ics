@@ -1,0 +1,49 @@
+BEGIN:VCALENDAR
+X-WR-CALNAME:Tech Earnings Calendar
+X-WR-RELCALID:tech.calendar.earnings
+X-WR-CALDESC:Earnings dates for selected tickers.
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260225
+DESCRIPTION:Ticker: NVDA\nFiscal Qtr: 4\nEstimate EPS: 1.5616\nEst. Revenue: 67.32 B\nSource: Finnhub
+SUMMARY:NVDA Q4 Earnings
+UID:v1-7d4514deaf55dcbbfb8f8d48639b912726d6346594d9777b2439b22e52804cb1@tech.calendar.earnings
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260423
+DESCRIPTION:Ticker: AMZN\nFiscal Qtr: 1\nEstimate EPS: 1.6603\nEst. Revenue: 180.71 B\nSource: Finnhub
+SUMMARY:AMZN Q1 Earnings
+UID:v1-0add6df21f01d8097924e39f88ee61dbe2a06884a4856c4e25d315eb08a1e334@tech.calendar.earnings
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260429
+DESCRIPTION:Ticker: MSFT\nFiscal Qtr: 3\nEstimate EPS: 4.1402\nEst. Revenue: 82.98 B\nSource: Finnhub
+SUMMARY:MSFT Q3 Earnings
+UID:v1-8e346b372766b7df59fe347173a4061510bb1878cb2e56b75bd946eb3bb85f1a@tech.calendar.earnings
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260430
+DESCRIPTION:Ticker: AAPL\nFiscal Qtr: 2\nEstimate EPS: 1.9828\nEst. Revenue: 111.48 B\nSource: Finnhub
+SUMMARY:AAPL Q2 Earnings
+UID:v1-761f05122e87d9b4d84fa07705d83f7ed620a03abbe5b9e24af73b6056d63d83@tech.calendar.earnings
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260429
+DESCRIPTION:Ticker: META\nFiscal Qtr: 1\nEstimate EPS: 6.8479\nEst. Revenue: 56.50 B\nSource: Finnhub
+SUMMARY:META Q1 Earnings
+UID:v1-622c12fe66c0a590971efa42f204b8a3abdd1f890823a18e10528be97e9c1f6e@tech.calendar.earnings
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260416
+DESCRIPTION:Ticker: NFLX\nFiscal Qtr: 1\nEstimate EPS: 0.7761\nEst. Revenue: 12.42 B\nSource: Finnhub
+SUMMARY:NFLX Q1 Earnings
+UID:v1-3ee448aa3b23b6b21a2b8b50fc9aec81a5ab63b3d24a7291412dee366aca46d4@tech.calendar.earnings
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260429
+DESCRIPTION:Ticker: GOOGL\nFiscal Qtr: 1\nEstimate EPS: 2.7579\nEst. Revenue: 110.08 B\nSource: Finnhub
+SUMMARY:GOOGL Q1 Earnings
+UID:v1-76b3c78618b8ceab4660f7af8a73282e76fd680395ae03fcdd1dd6cfa13b9db2@tech.calendar.earnings
+END:VEVENT
+END:VCALENDAR
