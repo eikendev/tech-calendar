@@ -13,7 +13,7 @@ dependencies = [
     "click>=8.3.3",
     "finnhub-python>=2.4.28",
     "ics>=0.7.3",
-    "pydantic>=2.13.2",
+    "pydantic>=2.13.3",
     "PyYAML>=6.0.2",
     "structlog>=25.4.0",
     "tenacity>=9.1.2",
@@ -44,7 +44,7 @@ project-excludes = ["**/*venv/**/*"]
 [dependency-groups]
 dev = [
     "bandit>=1.9.4",
-    "pyrefly>=0.61.1",
+    "pyrefly>=0.62.0",
     "pytest>=9.0.3",
-    "ruff>=0.15.11",
+    "ruff>=0.15.12",
 ]
