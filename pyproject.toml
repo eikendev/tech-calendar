@@ -15,7 +15,7 @@ dependencies = [
     "ics>=0.7.3",
     "pydantic>=2.13.4",
     "PyYAML>=6.0.2",
-    "structlog>=25.4.0",
+    "structlog>=26.1.0",
     "tenacity>=9.1.2",
     "webdavclient3>=3.14.7",
 ]
@@ -46,5 +46,5 @@ dev = [
     "bandit>=1.9.4",
     "pyrefly>=1.0.0",
     "pytest>=9.0.3",
-    "ruff>=0.15.16",
+    "ruff>=0.15.17",
 ]
