@@ -27,7 +27,7 @@ Homepage = "https://github.com/eikendev/tech-calendar"
 tech-calendar = "tech_calendar.cli:cli"
 
 [build-system]
-requires = ["setuptools>=83.0.0"]
+requires = ["setuptools>=84.0.0"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
@@ -46,5 +46,5 @@ dev = [
     "bandit>=1.9.4",
     "pyrefly>=1.2.0",
     "pytest>=9.1.1",
-    "ruff>=0.16.1",
+    "ruff>=0.16.2",
 ]
