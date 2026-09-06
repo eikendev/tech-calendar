@@ -19,13 +19,15 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - name: Checkout repository
+      # The publish step below pushes with the persisted GITHUB_TOKEN
+      # credential, so it has to stay in .git/config.
+      - name: Checkout repository # zizmor: ignore[artipacked]
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
       - name: Setup
-        uses: ./.github/actions/setup
+        uses: $/.github/actions/setup
 
       - name: Generate ICS
         env:
